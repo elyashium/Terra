@@ -1,0 +1,78 @@
+* {
+    padding: 0;
+    margin: 0;
+
+}
+
+main {
+    background-color: rgb(0, 0, 0);
+    height: 200vh;
+}
+
+.earth {
+    width: 60vw;
+}
+
+.container{
+    display: flex;
+}
+
+.text{
+    position: relative;
+    scale: 0.8;
+    bottom: 10vh;
+}
+
+.title {
+    /* terra. */
+
+    position: relative;
+   
+    left: 206px;
+    top: 296px;
+
+    font-family: 'Merriweather';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 140px;
+    line-height: 176px;
+
+    color: #FFFFFF;
+
+
+
+}
+
+.btn {
+
+
+    /* Vector */
+
+    position: absolute;
+    width: 198px;
+    height: 53.31px;
+    left: 204px;
+    top: 669px;
+
+    border: 2.37981px solid #38B854;
+}
+
+.text>p {
+
+    /* Use our interactive calculator to learn your carbon footprint and actions to take to reduce it. */
+
+    position: absolute;
+    width: 530.16px;
+    height: 184px;
+    left: 204px;
+    top: 512px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 33.6073px;
+    line-height: 41px;
+
+    color: #FFFFFF;
+
+}

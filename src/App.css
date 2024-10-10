@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -7,27 +9,32 @@
 main {
     background-color: rgb(0, 0, 0);
     height: 200vh;
+    overflow: hidden;
 }
 
 .earth {
-    width: 60vw;
+    height: 70vh;
+    width: 65vw;
+    position: relative;
+    left: 43vh;
+    top: 6vw;
 }
 
-.container{
+.container {
     display: flex;
 }
 
-.text{
+.text {
     position: relative;
     scale: 0.8;
-    bottom: 10vh;
+    bottom: 18vh;
 }
 
 .title {
     /* terra. */
 
     position: relative;
-   
+
     left: 206px;
     top: 296px;
 
@@ -73,6 +80,12 @@ main {
     font-size: 33.6073px;
     line-height: 41px;
 
+    color: #FFFFFF;
+
+}
+
+.header {
+    display: flex;
     color: #FFFFFF;
 
 }

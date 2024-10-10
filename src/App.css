@@ -13,11 +13,11 @@ main {
 }
 
 .earth {
-    height: 70vh;
+    height: 90vh;
     width: 65vw;
     position: relative;
     left: 43vh;
-    top: 6vw;
+    top: 1vw;
 }
 
 .container {
@@ -28,6 +28,7 @@ main {
     position: relative;
     scale: 0.8;
     bottom: 18vh;
+    z-index: 10;
 }
 
 .title {

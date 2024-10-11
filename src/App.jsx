@@ -1,5 +1,5 @@
 import Earth from './components/Earth'; 
-import Header from './components/Header'
+import Header from './components/Header';
 
 import './App.css'
 

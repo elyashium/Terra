@@ -1,5 +1,6 @@
 import Earth from './components/Earth'; 
 import Header from './components/Header';
+// import Slider from './components/Slider';
 
 import './App.css'
 

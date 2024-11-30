@@ -9,5 +9,4 @@ export default function Header() {
             <div className="events">Events</div>
         </div>
     )
-    //we will implement the link feature later with react router.
 }

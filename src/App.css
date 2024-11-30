@@ -110,7 +110,7 @@ main {
     color: #FFFFFF;
     gap: 6vw;
     font-size: larger;
-    position: relative;
+    position: sticky;
     left: 50vw;
     top: 5vh;
     font-family: inter;

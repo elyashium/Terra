@@ -1,33 +1,48 @@
-import React from 'react'
-import { useNavigate } from 'react-router'
-import '../app.css'
-
+import React from 'react';
+import { Link } from 'react-scroll';
+import '../app.css';
 
 export default function Header() {
-
-    const home = () => {
-        navigate('/'); 
-    };
-
-    const learn = () => {
-        navigate('/learn'); 
-    };
-
-    const timeline = () => {
-        navigate('/timeline'); 
-    };
-
-    const events = () => {
-        navigate('/events'); 
-    };
-
-
     return (
-        <div className="header">
-            <div onClick={home} >Home</div>
-            <div onClick={learn} >Learn</div>
-            <div onClick={timeline}  >Timeline</div>
-            <div onClick={events} >Events</div>
-        </div>
-    )
+        <header className="header">
+            <nav>
+                <Link
+                    to="home"
+                    smooth={true}
+                    duration={500}
+                    offset={-70}
+                    className="nav-link"
+                >
+                    Home
+                </Link>
+                <Link
+                    to="learn"
+                    smooth={true}
+                    duration={500}
+                    offset={-70}
+                    className="nav-link"
+                >
+                    Learn
+                </Link>
+                <Link
+                    to="timeline"
+                    smooth={true}
+                    duration={500}
+                    offset={-70}
+                    className="nav-link"
+                >
+                    Timeline
+                </Link>
+                <Link
+                    to="events"
+                    smooth={true}
+                    duration={500}
+                    offset={-70}
+                    className="nav-link"
+                >
+                    Events
+                </Link>
+            </nav>
+        </header>
+    );
 }

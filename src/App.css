@@ -277,3 +277,102 @@ main {
       grid-template-columns: 1fr;
     }
   }
+
+
+  /* Learn about page */
+
+
+  .learn-carbon-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #f4f4f4;
+  }
+  
+  .learn-carbon-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .learn-carbon-header h2 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .learn-carbon-header p {
+    color: #7f8c8d;
+    font-size: 1.2rem;
+  }
+  
+  .carbon-sections {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+  }
+  
+  .carbon-section {
+    border-bottom: 1px solid #ecf0f1;
+  }
+  
+  .section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    cursor: pointer;
+    background-color: #f8f9fa;
+    transition: background-color 0.3s ease;
+  }
+  
+  .section-title:hover {
+    background-color: #e9ecef;
+  }
+  
+  .section-title h3 {
+    color: #2c3e50;
+    margin: 0;
+    font-size: 1.3rem;
+  }
+  
+  .section-title span {
+    font-size: 1.5rem;
+    color: #3498db;
+  }
+  
+  .section-content {
+    padding: 1.5rem;
+    background-color: white;
+  }
+  
+  .section-content h4 {
+    color: #2980b9;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .emission-breakdown, .reduction-strategies {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .emission-category, .strategy-category {
+    background-color: #f1f3f4;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .emission-category ul, .reduction-strategies ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    color: #34495e;
+  }
+  
+  @media (max-width: 768px) {
+    .emission-breakdown, .reduction-strategies {
+      grid-template-columns: 1fr;
+    }
+  }

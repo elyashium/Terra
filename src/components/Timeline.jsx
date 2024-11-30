@@ -123,13 +123,13 @@ const Timeline = () => {
                     >
                         <div
                             className="timeline-period"
-                            style={{ color: item.textColor }}
+                          
                         >
                             {item.period}
                         </div>
                         <div
                             className="timeline-description"
-                            style={{ color: item.textColor }}
+                          
                         >
                             {item.description}
                         </div>

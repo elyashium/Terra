@@ -186,6 +186,8 @@ main {
     border-radius: 12px;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+    top : 30vh;
   }
   
   .timeline-header {

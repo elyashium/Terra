@@ -1,5 +1,5 @@
 import React from 'react'
-import './DarkTimeline.css'
+import '../App.css'
 
 const Timeline = () => {
     const timelineData = [

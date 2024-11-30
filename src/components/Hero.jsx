@@ -16,42 +16,40 @@ export default function Hero() {
 
   return (
     <>
-      <Element name="home" className="main-content">
-        <Header />
+      <main>
+        <Element name="home">
+          <Header />
 
-        <div className="firstContainer">
-          <div className="text">
-            <div className="title">terra.</div>
+          <div className="firstContainer">
+            <div className="text">
+              <div className="title">terra.</div>
 
-            <p>Use our interactive calculator to learn your carbon footprint and actions to take to reduce it.</p>
+              <p>Use our interactive calculator to learn your carbon footprint and actions to take to reduce it.</p>
 
-            <div onClick={handleBtn} className="tryit">
-              <div className="btn">Try it out</div>
-              <img src="src\images\arrow.svg" alt="" />
+              <div onClick={handleBtn} className="tryit">
+                <div className="btn">Try it out</div>
+                <img src="src\images\arrow.svg" alt="" />
+              </div>
+            </div>
+
+            <div className="earth">
+              <Earth />
             </div>
           </div>
+        </Element>
 
-          <div className="earth">
-            <Earth />
-          </div>
-        </div>
-      </Element>
+        <Element name="timeline" className="dark-mode-app">
+          <Timeline />
+        </Element>
 
-      <Element name="timeline" className="dark-mode-app">
-        <Timeline />
-      </Element>
+        <Element name="learn" className="learn-section" style={{ display: 'none' }}>
+          {/* Placeholder for learn section */}
+        </Element>
 
-      <Element name="learn" className="learn-section">
-        {/* You can add a Learn section content here */}
-        <h2>Learn More About Carbon Footprint</h2>
-        {/* Add any learning resources or information */}
-      </Element>
-
-      <Element name="events" className="events-section">
-        {/* You can add an Events section content here */}
-        <h2>Environmental Events and Initiatives</h2>
-        {/* Add any events or initiatives information */}
-      </Element>
+        <Element name="events" className="events-section" style={{ display: 'none' }}>
+          {/* Placeholder for events section */}
+        </Element>
+      </main>
     </>
   )
 }

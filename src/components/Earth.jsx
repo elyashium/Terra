@@ -5,8 +5,7 @@ export default function Earth() {
   return (
     
     <Spline
-    scene="https://prod.spline.design/cgLfXI65KbWO2upw/scene.splinecode" 
-  />
+    scene="https://prod.spline.design/cgLfXI65KbWO2upw/scene.splinecode"  />
   
   )
 }

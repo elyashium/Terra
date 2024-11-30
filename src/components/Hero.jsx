@@ -2,6 +2,7 @@ import React from 'react'
 import Header from './Header'
 import Earth from './Earth'
 import {useNavigate} from 'react-router-dom'
+import CarbonCalculator from './CarbonCalculator'
 
 export default function Hero() {
 

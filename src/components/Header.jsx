@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router'
+import '../app.css'
 
 
 export default function Header() {

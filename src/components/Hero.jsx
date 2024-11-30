@@ -4,6 +4,7 @@ import Earth from './Earth'
 import {useNavigate} from 'react-router-dom'
 import CarbonCalculator from './CarbonCalculator'
 import Timeline from './Timeline'
+import '../app.css'
 
 export default function Hero() {
 
@@ -19,7 +20,7 @@ export default function Hero() {
 
       <Header />
 
-      <div className="container">
+      <div className="firstContainer">
 
         <div className="text">
 
@@ -41,9 +42,13 @@ export default function Hero() {
         </div>
       </div>
 
-      <Timeline />
+
+
+
+   
       
     </main>
+
   </>
   )
 }

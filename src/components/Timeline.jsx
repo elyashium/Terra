@@ -1,50 +1,87 @@
 import React from 'react'
+import '../app.css'
 
-export default function Timeline() {
+const Timeline = () => {
+    const timelineData = [
+        {
+            period: 'Before 1800s',
+            color: '#2C3E50',
+            description: 'Minimal emissions, natural CO2 balance',
+            textColor: '#4ce3ff'
+        },
+        {
+            period: '18th-19th Century',
+            color: '#34495E',
+            description: 'Fossil fuels surge, climate impact surfaces',
+            textColor: '#FFD700'
+        },
+        {
+            period: '20th Century',
+            color: '#2980B9',
+            description: 'Industrialization spikes emissions',
+            textColor: '#05e177'
+        },
+        {
+            period: 'Mid-20th Century',
+            color: '#8E44AD',
+            description: 'Awareness grows, consequences emerge',
+            textColor: '#FF6B6B'
+        },
+        {
+            period: 'Late 20th Century',
+            color: '#16A085',
+            description: 'Scientific proof of human-caused warming',
+            textColor: '#3498DB'
+        },
+        {
+            period: '21st Century',
+            color: '#D35400',
+            description: 'Accelerating climate change impacts',
+            textColor: '#E74C3C'
+        },
+        {
+            period: '2020s',
+            color: '#C0392B',
+            description: 'Critical decade for climate action',
+            textColor: '#F39C12'
+        },
+        {
+            period: 'Future',
+            color: '#2C3E50',
+            description: 'Our choice: Safeguard tomorrow',
+            textColor: '#FFFFFF'
+        }
+    ]
+
     return (
-        <div class="timeline-container">
-            <div class="timeline-wrapper">
-                <div class="timeline-top-row">
-                    <p class="timeline-text-block" style="color: #4ce3ff; border-color: #4ce3ff;">
-                        Minimal emissions, natural CO2 balance
-                    </p>
-                    <p class="timeline-text-block" style="color: #dbb000; border-color: #dbb000;">
-                        Fossil fuels surge, climate impact surfaces
-                    </p>
-                    <p class="timeline-text-block" style="color: #008080; border-color: #008080;">
-                        Proof of human-caused warming. Efforts to curb emissions begin
-                    </p>
-                    <p class="timeline-text-block" style="color: #d2691e; border-color: #d2691e;">
-                        Shift to renewables sources, health implications
-                    </p>
-                </div>
-
-                <div class="timeline-periods">
-                    <div class="period-block" style="background-color: #4ce3ff;">Before 1800s</div>
-                    <div class="period-block" style="background-color: #05e177;">18th-19th</div>
-                    <div class="period-block" style="background-color: #dbb000;">20th Century</div>
-                    <div class="period-block" style="background-color: #ff6900;">Mid-20th Century</div>
-                    <div class="period-block" style="background-color: #008080;">Late 20th Century</div>
-                    <div class="period-block" style="background-color: #cd7f32;">21st Century</div>
-                    <div class="period-block" style="background-color: #ff4500;">2020s</div>
-                    <div class="period-block" style="background-color: #8b0000;">Future</div>
-                </div>
-
-                <div class="timeline-bottom-row">
-                    <p class="timeline-text-block" style="color: #05e177; border-color: #05e177;">
-                        Industrialization spikes emissions. CO2 levels begin to rise
-                    </p>
-                    <p class="timeline-text-block" style="color: #cd7f32; border-color: #ff6900;">
-                        Awareness grows, hints of consequence
-                    </p>
-                    <p class="timeline-text-block" style="color: #cd7f32; border-color: #cd7f32;">
-                        CO2 climbs, Sea levels and biodiversity at risk
-                    </p>
-                    <p class="timeline-text-block" style="color: #d2691e; border-color: #8b0000;">
-                        Our choice: Act now to safeguard tomorrow
-                    </p>
-                </div>
+        <div className="dark-timeline-container">
+            <div className="timeline-header">
+                <h2>Climate Change Timeline</h2>
+            </div>
+            <div className="timeline-grid">
+                {timelineData.map((item, index) => (
+                    <div
+                        key={index}
+                        className="timeline-item"
+                        style={{ backgroundColor: item.color }}
+                    >
+                        <div
+                            className="timeline-period"
+                            style={{ color: item.textColor }}
+                        >
+                            {item.period}
+                        </div>
+                        <div
+                            className="timeline-description"
+                            style={{ color: item.textColor }}
+                        >
+                            {item.description}
+                        </div>
+                    </div>
+                ))}
             </div>
         </div>
     )
 }
+
+export default Timeline

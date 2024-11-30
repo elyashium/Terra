@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import CarbonCalculator from './CarbonCalculator'
 import Timeline from './Timeline'
 import '../app.css'
+import Learn from './Learn'
 
 export default function Hero() {
   const navigate = useNavigate();
@@ -42,8 +43,8 @@ export default function Hero() {
           <Timeline />
         </Element>
 
-        <Element name="learn" className="learn-section" style={{ display: 'none' }}>
-          {/* Placeholder for learn section */}
+        <Element name="learn" className="learn-section">
+         <Learn />
         </Element>
 
         <Element name="events" className="events-section" style={{ display: 'none' }}>

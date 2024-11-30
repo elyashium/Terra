@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 * {
     padding: 0;
     margin: 0;
-    
+
 
 }
 
@@ -52,13 +53,13 @@ main {
 
 }
 
-.tryit{
+.tryit {
     width: 150px;
     height: 50px;
     background-color: white;
     color: rgb(0, 0, 0);
     border-radius: 50px;
-  
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,16 +70,16 @@ main {
     position: relative;
     top: 73vh;
     left: 14vw;
-  }
-  
-  .tryit:hover{
+}
+
+.tryit:hover {
     scale: 1.05;
     transition: smooth 2ms;
-  }
-  
-  .tryit img{
+}
+
+.tryit img {
     width: 16px;
-  }
+}
 
 .text>p {
 
@@ -103,22 +104,21 @@ main {
 .header {
     display: flex;
     color: #FFFFFF;
-    gap : 6vw;
+    gap: 6vw;
     font-size: larger;
     position: relative;
     left: 50vw;
-    top : 5vh;
+    top: 5vh;
     font-family: inter;
     font-weight: 500;
 
 }
 
-.header > div {
+.header>div {
     color: #ffffff;
     font-size: 16px;
     font-weight: 500;
-   
-    letter-spacing: 1px;
+
     cursor: pointer;
     position: relative;
     transition: all 0.3s ease;
@@ -126,13 +126,13 @@ main {
     border-radius: 8px;
 }
 
-.header > div:hover {
+.header>div:hover {
     transform: scale(1.1);
     color: #4ce3ff;
     text-shadow: 0 0 10px rgba(76, 227, 255, 0.7);
 }
 
-.header > div::before {
+.header>div::before {
     content: '';
     position: absolute;
     top: 0;
@@ -146,7 +146,7 @@ main {
     z-index: -1;
 }
 
-.header > div:hover::before {
+.header>div:hover::before {
     opacity: 0.3;
 }
 
@@ -156,19 +156,107 @@ main {
         flex-direction: column;
         gap: 15px;
     }
-    
-    .header > div {
+
+    .header>div {
         width: 100%;
         text-align: center;
     }
 }
 
-/* Accessibility and Active States */
-.header > div:active {
+.header>div:active {
     transform: scale(0.95);
 }
 
-.header > div:focus {
+.header>div:focus {
     outline: 2px solid #4ce3ff;
     outline-offset: 3px;
+}
+
+/* time line css */
+
+.timeline-container {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timeline-wrapper {
+    width: 98%;
+    height: 98%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* First Row of Text Blocks */
+.timeline-top-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 25%;
+    position: relative;
+}
+
+.timeline-text-block {
+    width: 15%;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dotted;
+    padding: 8px;
+    position: relative;
+}
+
+/* Timeline Periods */
+.timeline-periods {
+    height: 24%;
+    width: 90%;
+    background-color: #90EE90;
+    border-radius: 9999px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+}
+
+.period-block {
+    height: 90%;
+    width: 8%;
+    border-radius: 9999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.75rem;
+}
+
+/* Bottom Row Text Blocks */
+.timeline-bottom-row {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 25%;
+    position: relative;
+    top: 2rem;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 640px) {
+
+    .timeline-text-block,
+    .period-block {
+        width: 25%;
+        font-size: 0.8rem;
+    }
+
+    .timeline-text-block:last-child {
+        display: none;
+    }
 }

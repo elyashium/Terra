@@ -232,6 +232,33 @@ main {
     font-size: 0.9rem;
     opacity: 0.9;
   }
+
+  .timeline-details {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    opacity: 0.9;
+  }
+  
+  .timeline-details ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .timeline-details strong {
+    color: #4ce3ff;
+    margin-right: 0.5rem;
+  }
+  
+  .timeline-details li {
+    margin-bottom: 0.3rem;
+  }
+  
+  @media (max-width: 640px) {
+    .timeline-details {
+      font-size: 0.7rem;
+    }
+  }
   
   @media (max-width: 1024px) {
     .timeline-grid {

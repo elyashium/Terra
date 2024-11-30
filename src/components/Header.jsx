@@ -5,29 +5,29 @@ import '../app.css'
 
 export default function Header() {
 
-    const navigate = useNavigate();
+    const home = () => {
+        navigate('/'); 
+    };
 
-    const home = () =>{
-        navigate('./')
-    }
+    const learn = () => {
+        navigate('/learn'); 
+    };
 
-    const learn = () =>{
-        navigate('./Learn')
-    }
-    const Timeline = () =>{
-        navigate('./Timeline')
-    }
-     const events = () =>{
-        navigate('./Events')
-    }
+    const timeline = () => {
+        navigate('/timeline'); 
+    };
+
+    const events = () => {
+        navigate('/events'); 
+    };
 
 
     return (
         <div className="header">
-           <div onClick ={ home } >Home</div> 
-            <div  onClick ={ learn } >Learn</div>
-            <div  onClick ={ Timeline }  >Timeline</div>
-            <div   onClick ={ events } >Events</div>
+            <div onClick={home} >Home</div>
+            <div onClick={learn} >Learn</div>
+            <div onClick={timeline}  >Timeline</div>
+            <div onClick={events} >Events</div>
         </div>
     )
 }

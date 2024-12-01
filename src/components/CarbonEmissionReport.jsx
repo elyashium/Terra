@@ -31,9 +31,7 @@ const CarbonEmissionsReport = () => {
             <div className="report-section">
                 <h2 className="section-title">How Carbon Emissions have increased in past 50 years</h2>
                 <div className="graph-placeholder">
-                    [Carbon Emissions Over Time Graph]
-                    <br />
-                    <small>Graph to be inserted here</small>
+                    <img src="src\images\50years.png" alt="" />
                 </div>
                 <p className="graph-description">
                     The graph shows how carbon emission have rapidly increasing in past years. The graph has been exponentially growing since the year 1960. Slight Downfall of the graph can be noticed in the year 2020. This exponential growth of carbon emissions depicts the risk to humanity posed by harmful emissions and its thousands of adverse effects.
@@ -43,9 +41,7 @@ const CarbonEmissionsReport = () => {
             <div className="report-section">
                 <h2 className="section-title">Country Wise Emission Statistics</h2>
                 <div className="graph-placeholder">
-                    [Country Wise Emissions Graph]
-                    <br />
-                    <small>Graph to be inserted here</small>
+                <img src="src\images\CountryWise.png" alt="" />
                 </div>
                 <p className="graph-description">
                     We can see the country-wise emission stats in the graph alongside. It shows how Saudi Arabia and Canada are one of the highest carbon emitters while countries with less area and population like Japan also fall under one of the worldwide highest emission's categories.

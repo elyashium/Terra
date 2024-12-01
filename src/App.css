@@ -559,12 +559,21 @@ main {
     background-color: #e0e7eb;
     border-radius: 12px;
     height: 300px;
+    width: 100%; /* Make it full width */
+    max-width: 100%; /* Ensure it doesn't overflow */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: #2c3e50;
     margin-bottom: 15px;
+    overflow: hidden; /* Prevent content from overflowing */
+  }
+  
+  .graph-placeholder img {
+    max-width: 100%; /* Ensure image fits within the placeholder */
+    max-height: 100%; /* Ensure image fits within the placeholder */
+    object-fit: contain; /* Maintain aspect ratio */
   }
   
   .graph-description {

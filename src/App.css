@@ -302,6 +302,8 @@ main {
     padding: 3rem;
     margin: 2rem auto;
     overflow: hidden;
+    padding-bottom: 15vh;
+    padding-top: 15vh;
 }
 
 .what-carbon::before {
@@ -324,8 +326,9 @@ main {
     font-size: 2.5rem;
     color: #ffffff;
     margin-bottom: 1.5rem;
-    position: relative;
+   position: relative;
     display: inline-block;
+    left: 2vw;
 }
 
 .what-carbon h2::after {
@@ -348,6 +351,8 @@ main {
     border-radius: 12px;
     position: relative;
     z-index: 2;
+    font-family: inter;
+    font-weight: 400;
 }
 
 .what-carbon-txt::before {

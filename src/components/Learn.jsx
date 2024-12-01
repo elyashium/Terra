@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react'
 import '../app.css'
 
@@ -17,6 +16,36 @@ export default function Learn() {
                         <li>Measured in metric tons of carbon dioxide equivalent (CO2e)</li>
                     </ul>
                     <p>The average global carbon footprint is approximately 4 tons per person annually, but in developed countries like the United States, it can be as high as 16 tons per person.</p>
+                    
+                    <div className="carbon-breakdown">
+                        <h4>Carbon Footprint Comparison</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Country/Region</th>
+                                    <th>Average Annual Carbon Footprint (tons)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>United States</td>
+                                    <td>16.2</td>
+                                </tr>
+                                <tr>
+                                    <td>China</td>
+                                    <td>7.4</td>
+                                </tr>
+                                <tr>
+                                    <td>India</td>
+                                    <td>1.9</td>
+                                </tr>
+                                <tr>
+                                    <td>Global Average</td>
+                                    <td>4.0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </>
             )
         },
@@ -34,6 +63,9 @@ export default function Learn() {
                                 <li>Public transportation</li>
                                 <li>Shipping and logistics</li>
                             </ul>
+                            <p className="category-impact">
+                                Impact: Shifting to electric vehicles and reducing air travel can significantly lower personal emissions.
+                            </p>
                         </div>
                         <div className="emission-category">
                             <strong>Electricity & Heating (25%)</strong>
@@ -43,6 +75,9 @@ export default function Learn() {
                                 <li>Fossil fuel power plants</li>
                                 <li>Renewable energy alternatives</li>
                             </ul>
+                            <p className="category-impact">
+                                Impact: Transitioning to renewable energy sources can dramatically reduce carbon emissions.
+                            </p>
                         </div>
                         <div className="emission-category">
                             <strong>Food & Agriculture (24%)</strong>
@@ -52,6 +87,9 @@ export default function Learn() {
                                 <li>Crop cultivation</li>
                                 <li>Food transportation</li>
                             </ul>
+                            <p className="category-impact">
+                                Impact: Plant-based diets and local food sourcing can significantly reduce agricultural emissions.
+                            </p>
                         </div>
                         <div className="emission-category">
                             <strong>Manufacturing & Construction (21%)</strong>
@@ -61,6 +99,9 @@ export default function Learn() {
                                 <li>Building construction</li>
                                 <li>Consumer goods manufacturing</li>
                             </ul>
+                            <p className="category-impact">
+                                Impact: Sustainable manufacturing and circular economy practices can minimize industrial carbon footprints.
+                            </p>
                         </div>
                     </div>
                 </>
@@ -80,6 +121,10 @@ export default function Learn() {
                                 <li>Carpool or use ride-sharing</li>
                                 <li>Combine errands to reduce trips</li>
                             </ul>
+                            <div className="strategy-impact">
+                                <strong>Potential Reduction:</strong>
+                                <p>Switching to electric vehicles can reduce personal transportation emissions by up to 50%.</p>
+                            </div>
                         </div>
                         <div className="strategy-category">
                             <h4>Home Energy Efficiency</h4>
@@ -90,6 +135,10 @@ export default function Learn() {
                                 <li>Use smart thermostats</li>
                                 <li>Choose energy-efficient appliances</li>
                             </ul>
+                            <div className="strategy-impact">
+                                <strong>Potential Reduction:</strong>
+                                <p>Energy-efficient home upgrades can reduce household emissions by 30-40%.</p>
+                            </div>
                         </div>
                         <div className="strategy-category">
                             <h4>Dietary Changes</h4>
@@ -100,6 +149,10 @@ export default function Learn() {
                                 <li>Opt for plant-based proteins</li>
                                 <li>Support sustainable agriculture</li>
                             </ul>
+                            <div className="strategy-impact">
+                                <strong>Potential Reduction:</strong>
+                                <p>A plant-based diet can reduce an individual's carbon footprint by up to 73%.</p>
+                            </div>
                         </div>
                         <div className="strategy-category">
                             <h4>Consumption & Waste</h4>
@@ -109,6 +162,52 @@ export default function Learn() {
                                 <li>Choose products with minimal packaging</li>
                                 <li>Compost organic waste</li>
                                 <li>Support circular economy brands</li>
+                            </ul>
+                            <div className="strategy-impact">
+                                <strong>Potential Reduction:</strong>
+                                <p>Proper waste management can reduce personal waste-related emissions by up to 25%.</p>
+                            </div>
+                        </div>
+                    </div>
+                </>
+            )
+        },
+        {
+            title: "Technological Innovations in Carbon Reduction",
+            content: (
+                <>
+                    <p>Emerging technologies are playing a crucial role in combating climate change and reducing carbon emissions:</p>
+                    <div className="tech-innovations">
+                        <div className="innovation-category">
+                            <h4>Carbon Capture and Storage (CCS)</h4>
+                            <ul>
+                                <li>Captures CO2 from industrial processes</li>
+                                <li>Stores carbon underground or repurposes it</li>
+                                <li>Potential to reduce emissions by up to 90%</li>
+                            </ul>
+                        </div>
+                        <div className="innovation-category">
+                            <h4>Renewable Energy Advancements</h4>
+                            <ul>
+                                <li>Improved solar panel efficiency</li>
+                                <li>Offshore wind farm technologies</li>
+                                <li>Advanced energy storage solutions</li>
+                            </ul>
+                        </div>
+                        <div className="innovation-category">
+                            <h4>Sustainable Agriculture Tech</h4>
+                            <ul>
+                                <li>Precision farming techniques</li>
+                                <li>Vertical farming</li>
+                                <li>Lab-grown meat alternatives</li>
+                            </ul>
+                        </div>
+                        <div className="innovation-category">
+                            <h4>Electric and Hydrogen Transportation</h4>
+                            <ul>
+                                <li>Advanced electric vehicle batteries</li>
+                                <li>Hydrogen fuel cell technology</li>
+                                <li>Sustainable public transportation</li>
                             </ul>
                         </div>
                     </div>
@@ -127,12 +226,42 @@ export default function Learn() {
                         <li>Implement sustainable urban planning</li>
                         <li>Protect and restore natural ecosystems</li>
                     </ul>
+                    <div className="future-projections">
+                        <h4>Climate Action Milestones</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Year</th>
+                                    <th>Global Emission Target</th>
+                                    <th>Key Objectives</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2030</td>
+                                    <td>45% Reduction</td>
+                                    <td>Renewable Energy Expansion</td>
+                                </tr>
+                                <tr>
+                                    <td>2040</td>
+                                    <td>70% Reduction</td>
+                                    <td>Industrial Decarbonization</td>
+                                </tr>
+                                <tr>
+                                    <td>2050</td>
+                                    <td>Net-Zero Emissions</td>
+                                    <td>Global Sustainability</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     <p>Individual actions, when combined, can create significant systemic change and contribute to global sustainability efforts.</p>
                 </>
             )
         }
     ];
 
+    
     return (
         <div className="learn-carbon-container">
 

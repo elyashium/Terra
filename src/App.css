@@ -124,7 +124,6 @@ main {
     z-index: 1000; 
     background-color: #000000; 
     padding: 10px 20px;
-    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.191);
     display: flex;
     justify-content: space-around; 
     align-items: center;
@@ -298,13 +297,9 @@ main {
 
 .what-carbon {
     position: relative;
-    background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+    color: white;
     border-radius: 16px;
     padding: 3rem;
-    box-shadow:
-        0 15px 30px rgba(0, 0, 0, 0.05),
-        0 10px 20px rgba(0, 0, 0, 0.04);
-    max-width: 1000px;
     margin: 2rem auto;
     overflow: hidden;
 }
@@ -327,7 +322,7 @@ main {
 
 .what-carbon h2 {
     font-size: 2.5rem;
-    color: #2c3e50;
+    color: #ffffff;
     margin-bottom: 1.5rem;
     position: relative;
     display: inline-block;
@@ -347,8 +342,8 @@ main {
 .what-carbon-txt {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #34495e;
-    background-color: rgba(255, 255, 255, 0.7);
+    color: #ffffff;
+   
     padding: 2rem;
     border-radius: 12px;
     position: relative;

@@ -494,3 +494,80 @@ main {
         grid-template-columns: 1fr;
     }
 }
+
+
+/* carbon emission report css  */
+
+.carbon-emissions-report {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f7f6;
+  }
+  
+  .report-title {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+  
+  .report-section {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 25px;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+    color: #34495e;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+  }
+  
+  .alarming-stats-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .alarming-stats-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    color: #2c3e50;
+  }
+  
+  .stat-icon {
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-weight: bold;
+  }
+  
+  .graph-placeholder {
+    background-color: #e0e7eb;
+    border-radius: 12px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #2c3e50;
+    margin-bottom: 15px;
+  }
+  
+  .graph-description {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+  }

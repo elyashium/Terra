@@ -499,17 +499,15 @@ main {
 /* carbon emission report css  */
 
 .carbon-emissions-report {
-    max-width: 800px;
     margin: 0 auto;
     padding: 20px;
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f4f7f6;
   }
   
   .report-title {
     text-align: center;
-    color: #2c3e50;
+    color: #ffffff;
     font-size: 2.5rem;
     margin-bottom: 30px;
   }

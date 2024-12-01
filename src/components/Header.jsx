@@ -5,7 +5,7 @@ import '../app.css'
 export default function Header() {
     return (
         <header className="header">
-            <nav>
+            
                 <div>
 
                     <Link
@@ -62,7 +62,7 @@ export default function Header() {
                     </Link>
                 </div>
 
-            </nav>
+            
         </header>
     )
 }

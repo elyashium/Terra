@@ -108,15 +108,27 @@ main {
 }
 
 .header {
-    display: flex;
+    /* display: flex;
     color: #FFFFFF;
     gap: 6vw;
     font-size: larger;
     position: sticky;
     left: 50vw;
-    top: 5vh;
+    top: 5vh;*/
     font-family: inter;
-    font-weight: 500;
+    font-weight: 500; 
+    font-size: larger;
+
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; 
+    background-color: #000000; 
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    width: 100%; 
 
 }
 

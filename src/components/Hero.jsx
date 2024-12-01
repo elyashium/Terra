@@ -17,9 +17,10 @@ export default function Hero() {
 
   return (
     <>
+      <Header />
       <main>
         <Element name="home">
-          <Header />
+
 
           <div className="firstContainer">
             <div className="text">
@@ -44,7 +45,7 @@ export default function Hero() {
         </Element>
 
         <Element name="learn" className="learn-section">
-         <Learn />
+          <Learn />
         </Element>
 
         <Element name="events" className="events-section" style={{ display: 'none' }}>

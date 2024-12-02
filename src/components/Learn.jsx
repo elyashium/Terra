@@ -291,6 +291,8 @@ export default function Learn() {
                     <div key={index} className="carbon-section">
                         <div
                             className="section-title"
+                            // If the current section is already active, set it to null (close it)
+                            // If it's not active, set it to the current index (open it)
                             onClick={() => setActiveSection(activeSection === index ? null : index)}
                         >
                             <h3>{section.title}</h3>

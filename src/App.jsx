@@ -6,6 +6,7 @@ import Hero from './components/Hero';
 // import Learn from './components/Learn';
 // import Events from './components/Events';
 // import Timeline from './components/Timeline';
+import CarbonCalculator from './components/CarbonCalculator';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         {/* <Route path="/timeline" element={<Timeline />} />
         <Route path="/learn" element={<Learn />} />
         <Route path="/events" element={<Events />} /> */}
+         <Route path="/CarbonCalculator" element={<CarbonCalculator />} />
       </Routes>
     </Router>
   )

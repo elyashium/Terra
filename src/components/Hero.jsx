@@ -5,7 +5,7 @@ import Earth from './Earth'
 import { useNavigate } from 'react-router-dom'
 import CarbonCalculator from './CarbonCalculator'
 import Timeline from './Timeline'
-import '../app.css'
+import '../App.css'
 import Learn from './Learn'
 
 export default function Hero() {

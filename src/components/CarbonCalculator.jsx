@@ -368,6 +368,8 @@ const CarbonFootprintCalculator = () => {
                 }
             }
         }
+
+        
         await Promise.all(promises);
 
         setPercent(Math.round((Math.abs(score - 1333) * 100) / 1333), 2);

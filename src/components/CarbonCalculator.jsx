@@ -223,7 +223,7 @@ const CarbonFootprintCalculator = () => {
                                         {
                                             headers: {
                                                 "Content-Type": "application/json",
-                                                Authorization: `Bearer ${process.env.REACT_APP_CLIMATIQ_API}`,
+                                                Authorization: `Bearer ${process.env.SMHS49B5Y948X8775PSD2C6JN0}`,
                                             },
                                         }
                                     )
@@ -257,7 +257,7 @@ const CarbonFootprintCalculator = () => {
                                         {
                                             headers: {
                                                 "Content-Type": "application/json",
-                                                Authorization: `Bearer ${process.env.REACT_APP_CLIMATIQ_API}`,
+                                                Authorization: `Bearer ${process.env.SMHS49B5Y948X8775PSD2C6JN0}`,
                                             },
                                         }
                                     )
@@ -300,7 +300,7 @@ const CarbonFootprintCalculator = () => {
                                         {
                                             headers: {
                                                 "Content-Type": "application/json",
-                                                Authorization: `Bearer ${process.env.REACT_APP_CLIMATIQ_API}`,
+                                                Authorization: `Bearer ${process.env.SMHS49B5Y948X8775PSD2C6JN0}`,
                                             },
                                         }
                                     )
@@ -336,7 +336,7 @@ const CarbonFootprintCalculator = () => {
                                         {
                                             headers: {
                                                 "Content-Type": "application/json",
-                                                Authorization: `Bearer ${process.env.REACT_APP_CLIMATIQ_API}`,
+                                                Authorization: `Bearer ${process.env.SMHS49B5Y948X8775PSD2C6JN0}`,
                                             },
                                         }
                                     )

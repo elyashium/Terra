@@ -2,3 +2,31 @@
     font-weight: bold;
     color: darkgreen;
   }
+
+  .active-link {
+    font-weight: bold;
+    color: darkgreen;
+    border-bottom: 2px solid darkgreen;
+    border-radius: 10px 10px 0 0;
+    padding-bottom: 8px;
+    font-size: 18px;
+  }
+  
+  .inactive-link {
+    color: black;
+    border-radius: 10px 10px 0 0;
+    padding-bottom: 8px;
+  }
+  
+  .nav-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: white;
+    padding: 10px;
+  }
+  
+  .emoji {
+    font-size: 1.5em;
+    margin-right: 5px;
+  }

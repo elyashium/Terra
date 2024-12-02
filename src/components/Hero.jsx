@@ -4,7 +4,6 @@ import Header from './Header'
 import Earth from './Earth'
 import { useNavigate } from 'react-router-dom'
 import CarbonCalculator from './CarbonCalculator'
-import Recommendations from './Recommendations'
 import Timeline from './Timeline'
 import '../app.css'
 import Learn from './Learn'
@@ -49,8 +48,8 @@ export default function Hero() {
           <Learn />
         </Element>
 
-        <Element name="Recommendations" className="events-section" >
-         <Recommendations />
+        <Element name="events" className="events-section" style={{ display: 'none' }}>
+          {/* Placeholder for events section */}
         </Element>
       </main>
     </>

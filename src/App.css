@@ -76,6 +76,8 @@ main {
     position: relative;
     top: 73vh;
     left: 14vw;
+
+    cursor: pointer;
 }
 
 .tryit:hover {

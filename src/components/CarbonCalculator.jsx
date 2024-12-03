@@ -128,7 +128,7 @@ const CarbonFootprintCalculator = () => {
         let score = 0;
         const electricity_rate = 0.15; //0.15 for 1 kwh electricity
         const electricity_emission_factor = 0.857;
-        const water_rate = 0.667; //1.5 dollar for 1000 gallons
+        const water_rate = 0.667; 
         const water_emission_factor = 0.0816;
         const gas_rate = 1.11;
         const gas_emission_factor = 2.3;

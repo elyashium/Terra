@@ -209,7 +209,7 @@ const CarbonFootprintCalculator = () => {
                             promises.push(
                                 axios
                                     .post(
-                                        "https://beta4.api.climatiq.io/estimate",
+                                        "https://api.climatiq.io/data/v1/estimate",
                                         {
                                             emission_factor: {
                                                 activity_id:
@@ -244,7 +244,7 @@ const CarbonFootprintCalculator = () => {
                             promises.push(
                                 axios
                                     .post(
-                                        "https://beta4.api.climatiq.io/estimate",
+                                        "https://api.climatiq.io/data/v1/estimate",
                                         {
                                             emission_factor: {
                                                 activity_id: "education-type_education_services",
@@ -285,7 +285,7 @@ const CarbonFootprintCalculator = () => {
                             promises.push(
                                 axios
                                     .post(
-                                        "https://beta4.api.climatiq.io/estimate",
+                                        "https://api.climatiq.io/data/v1/estimate",
                                         {
                                             emission_factor: {
                                                 activity_id:
@@ -321,7 +321,7 @@ const CarbonFootprintCalculator = () => {
                             promises.push(
                                 axios
                                     .post(
-                                        "https://beta4.api.climatiq.io/estimate",
+                                        "https://api.climatiq.io/data/v1/estimate",
                                         {
                                             emission_factor: {
                                                 activity_id:

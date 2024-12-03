@@ -10,7 +10,7 @@
 
 main {
     background-color: rgb(0, 0, 0);
-    height: 700vh;
+    height: 670vh;
     overflow: hidden;
 }
 
@@ -537,6 +537,7 @@ main {
   .alarming-stats-list {
     list-style-type: none;
     padding: 0;
+    color:  white;
   }
   
   .alarming-stats-list li {

@@ -22,7 +22,7 @@ import {
 import { InputRightElement, InputGroup } from "@chakra-ui/react";
 import { Link, useNavigate, NavLink } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
-import axios from "axios";
+// import axios from "axios";
 import ThugLifeCard from "./ThugLifeCard";
 import AverageCalculator from "./AverageCalculator";
 import BarGraph from "./Graph";

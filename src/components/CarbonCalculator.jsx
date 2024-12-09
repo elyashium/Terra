@@ -362,7 +362,7 @@ const CarbonFootprintCalculator = () => {
         fontWeight: "bold",
         color: "darkgreen",
         borderBottom: "2px solid darkgreen",
-        borderRadius: "10px 10px 0 0", // Rounded top corners
+        borderRadius: "10px 10px 0 0", 
         paddingBottom: "8px",
         fontSize: "18px",
     };

@@ -1,9 +1,10 @@
 import React from "react";
 
+import HappyImage from "../images/happy.png"
+import SadImage from "../images/sad.png"
+
 const ThugLifeCard = ({ isHappy }) => {
-  const imagePath = isHappy
-    ? require("../images/happy.jpeg")
-    : require("../images/Sad.jpeg");
+  const imagePath = isHappy ? HappyImage : SadImage
 
   return (
     <div>

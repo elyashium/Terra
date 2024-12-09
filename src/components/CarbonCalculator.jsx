@@ -303,7 +303,7 @@ const CarbonFootprintCalculator = () => {
         if (score >= 1333) {
             setisLessThanAverage(false);
         }
-        console.log(score, "scoreee");
+        console.log(score, "score");
         return score;
     };
 

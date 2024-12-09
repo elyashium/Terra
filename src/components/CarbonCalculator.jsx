@@ -1,4 +1,5 @@
 import '../Form.css';
+import './CarbonCalu.css';
 
 import React, { useState, useEffect } from "react";
 import {
@@ -390,6 +391,8 @@ const CarbonFootprintCalculator = () => {
 
     return (
         <div>
+
+            <div className="head"><Header /></div>
             <br />
 
             <Box

@@ -29,6 +29,7 @@ import BarGraph from "./Graph";
 import Header from './Header';
 
 const CarbonFootprintCalculator = () => {
+    
     const navigate = useNavigate();
     const toast = useToast();
     const [isLoading, setIsLoading] = useState(false);
@@ -37,6 +38,7 @@ const CarbonFootprintCalculator = () => {
     const [familyMembers, setFamilyMembers] = useState(1);
     const [railFam, setRailFam] = useState(1);
     const [flightFam, setFlightFam] = useState(1);
+
     const [formData, setFormData] = useState({
         family: 0,
         electricity: 0,
@@ -95,6 +97,7 @@ const CarbonFootprintCalculator = () => {
                 "telecommunication",
             ],
         },
+
         {
             label: "Step 2: Food and Beverages",
             fields: ["dairy", "meat", "tobacco", "restaurant"],
@@ -112,13 +115,14 @@ const CarbonFootprintCalculator = () => {
             fields: ["insurance", "plastic", "clothing"],
         },
         {
-            label: "Your Ecosavvy Score is here",
+            label: "Your Terra Score is here",
         },
     ];
 
     const [currentStep, setCurrentStep] = useState(0);
 
     const currentFields = steps[currentStep].fields;
+    //to extract the current fields from the array dynamically
     const isSecondLastStep = currentStep === steps.length - 2;
     const isLastStep = currentStep === steps.length - 1;
 

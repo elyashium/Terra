@@ -144,10 +144,10 @@ const CarbonFootprintCalculator = () => {
     
         const promises = [];
     
-        // Store your Climatiq API key here - make sure to keep this secret!
+     
         const CLIMATIQ_API_KEY = 'SMHS49B5Y948X8775PSD2C6JN0'; 
     
-        // Iterate through the formData object and perform calculations based on field names
+      
         for (const fieldName in formData) {
             if (formData.hasOwnProperty(fieldName)) {
                 const value = parseFloat(formData[fieldName]); // Convert the field value to a number
@@ -160,7 +160,7 @@ const CarbonFootprintCalculator = () => {
                             setBills(bills + value);
                         }
                         break;
-                    // ... (previous cases remain the same)
+                 
     
                     case "medicine":
                         if (value != 0) {
@@ -178,7 +178,7 @@ const CarbonFootprintCalculator = () => {
                                         },
                                         parameters: {
                                             money: value,
-                                            money_unit: "usd",
+                                            money_unit: "inr",
                                         },
                                     })
                                 })
@@ -196,6 +196,7 @@ const CarbonFootprintCalculator = () => {
     
                     case "education":
                         if (value != 0) {
+                            
                             promises.push(
                                 fetch("https://api.climatiq.io/data/v1/estimate", {
                                     method: 'POST',
@@ -210,7 +211,7 @@ const CarbonFootprintCalculator = () => {
                                         },
                                         parameters: {
                                             money: value,
-                                            money_unit: "usd",
+                                            money_unit: "inr",
                                         },
                                     })
                                 })

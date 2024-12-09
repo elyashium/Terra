@@ -292,7 +292,7 @@ const CarbonFootprintCalculator = () => {
                         }
                         break;
     
-                    // ... (other cases remain the same)
+                   
                 }
             }
         }

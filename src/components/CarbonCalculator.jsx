@@ -29,7 +29,7 @@ import BarGraph from "./Graph";
 import Header from './Header';
 
 const CarbonFootprintCalculator = () => {
-    
+
     const navigate = useNavigate();
     const toast = useToast();
     const [isLoading, setIsLoading] = useState(false);
@@ -131,41 +131,51 @@ const CarbonFootprintCalculator = () => {
     };
 
     const calculateScore = async () => {
+
         let score = 0;
         const electricity_rate = 0.15; //0.15 for 1 kwh electricity
         const electricity_emission_factor = 0.857;
-        const water_rate = 0.667; 
+
+        const water_rate = 0.667;
         const water_emission_factor = 0.0816;
+
         const gas_rate = 1.11;
         const gas_emission_factor = 2.3;
+
         const petrol_rate = 1.01;
         const dairy_emission_factor = 1.2;
+
+
         const meat_emission_factor = 36;
+
         const tobacco_price_per_pac = 6.11;
         const tobacco_emission_factor = 0.28;
+
         const restaurant_ef = 2.594;
+
         const clothing_ef = 1.2;
-    
+
         const promises = [];
-    
-     
-        const CLIMATIQ_API_KEY = 'SMHS49B5Y948X8775PSD2C6JN0'; 
-    
-      
+
+
+        const CLIMATIQ_API_KEY = 'SMHS49B5Y948X8775PSD2C6JN0';
+
+
         for (const fieldName in formData) {
+
             if (formData.hasOwnProperty(fieldName)) {
-                const value = parseFloat(formData[fieldName]); // Convert the field value to a number
-    
+                const value = parseFloat(formData[fieldName]); // Convert the field value to a number for type safety since the intial values are 0
                 // Check the field name and perform specific calculations
                 switch (fieldName) {
+
                     case "electricity":
                         if (value != 0) {
                             score += (value / electricity_rate) * electricity_emission_factor;
                             setBills(bills + value);
                         }
                         break;
-                 
-    
+
+
                     case "medicine":
                         if (value != 0) {
                             promises.push(
@@ -186,21 +196,21 @@ const CarbonFootprintCalculator = () => {
                                         },
                                     })
                                 })
-                                .then((response) => response.json())
-                                .then((data) => {
-                                    score += data.co2e;
-                                    setHealth(health + data.co2e);
-                                })
-                                .catch((err) => {
-                                    console.error("Error in medicine API call:", err);
-                                })
+                                    .then((response) => response.json())
+                                    .then((data) => {
+                                        score += data.co2e;
+                                        setHealth(health + data.co2e);
+                                    })
+                                    .catch((err) => {
+                                        console.error("Error in medicine API call:", err);
+                                    })
                             );
                         }
                         break;
-    
+
                     case "education":
                         if (value != 0) {
-                            
+
                             promises.push(
                                 fetch("https://api.climatiq.io/data/v1/estimate", {
                                     method: 'POST',
@@ -219,18 +229,18 @@ const CarbonFootprintCalculator = () => {
                                         },
                                     })
                                 })
-                                .then((response) => response.json())
-                                .then((data) => {
-                                    score += data.co2e;
-                                    setHealth(health + data.co2e);
-                                })
-                                .catch((err) => {
-                                    console.error("Error in education API call:", err);
-                                })
+                                    .then((response) => response.json())
+                                    .then((data) => {
+                                        score += data.co2e;
+                                        setHealth(health + data.co2e);
+                                    })
+                                    .catch((err) => {
+                                        console.error("Error in education API call:", err);
+                                    })
                             );
                         }
                         break;
-    
+
                     case "rail":
                         if (value != 0) {
                             promises.push(
@@ -252,18 +262,18 @@ const CarbonFootprintCalculator = () => {
                                         },
                                     })
                                 })
-                                .then((response) => response.json())
-                                .then((data) => {
-                                    score += data.co2e;
-                                    setTransport(transport + data.co2e);
-                                })
-                                .catch((err) => {
-                                    console.error("Error in rail API call:", err);
-                                })
+                                    .then((response) => response.json())
+                                    .then((data) => {
+                                        score += data.co2e;
+                                        setTransport(transport + data.co2e);
+                                    })
+                                    .catch((err) => {
+                                        console.error("Error in rail API call:", err);
+                                    })
                             );
                         }
                         break;
-    
+
                     case "flight":
                         if (value != 0) {
                             promises.push(
@@ -285,25 +295,25 @@ const CarbonFootprintCalculator = () => {
                                         },
                                     })
                                 })
-                                .then((response) => response.json())
-                                .then((data) => {
-                                    score += data.co2e;
-                                    setTransport(transport + data.co2e);
-                                })
-                                .catch((err) => {
-                                    console.error("Error in flight API call:", err);
-                                })
+                                    .then((response) => response.json())
+                                    .then((data) => {
+                                        score += data.co2e;
+                                        setTransport(transport + data.co2e);
+                                    })
+                                    .catch((err) => {
+                                        console.error("Error in flight API call:", err);
+                                    })
                             );
                         }
                         break;
-    
-                   
+
+
                 }
             }
         }
-    
+
         await Promise.all(promises);
-    
+
         setPercent(Math.round((Math.abs(score - 1333) * 100) / 1333), 2);
         if (score >= 1333) {
             setisLessThanAverage(false);

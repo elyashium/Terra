@@ -395,17 +395,7 @@ const CarbonFootprintCalculator = () => {
             <div className="head"><Header /></div>
             <br />
 
-            <Box
-                w={["80%"]}
-                m="auto"
-                bg="rgba(255, 255, 255, 0.2)"
-                backdropFilter="blur(10px)"
-                borderRadius="10px"
-                p="20px"
-                mx="auto"
-                border={["none", "1px"]}
-                borderColor={["", "gray.300"]}
-            >
+            <Box>
                 <nav style={navContainerStyle}>
                     <NavLink
                         isActive={() => currentStep === 0}

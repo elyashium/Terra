@@ -390,7 +390,7 @@ const CarbonFootprintCalculator = () => {
 
 
     return (
-        <div>
+        <main>
 
             <div className="head"><Header /></div>
             <br />
@@ -980,7 +980,7 @@ const CarbonFootprintCalculator = () => {
                     </Stack>
                 </form>
             </Box>
-        </div>
+        </main>
     );
 
 

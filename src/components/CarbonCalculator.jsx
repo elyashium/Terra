@@ -396,6 +396,7 @@ const CarbonFootprintCalculator = () => {
             <br />
 
             <Box>
+                
                 <nav style={navContainerStyle}>
                     <NavLink
                         isActive={() => currentStep === 0}

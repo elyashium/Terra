@@ -39,9 +39,9 @@ const CarbonEmissionsReport = () => {
             </div>
 
             <div className="report-section">
-                <h2 className="section-title">Country Wise Emission Statistics</h2>
+                <h2 className="section-title">India's Persepective on Emission Statistics</h2>
                 <div className="graph-placeholder">
-                <img src="src\images\CountryWise.png" alt="" />
+                <img src="src\images\CountryWise.webp" alt="" />
                 </div>
                 <p className="graph-description">
                     We can see the country-wise emission stats in the graph alongside. It shows how Saudi Arabia and Canada are one of the highest carbon emitters while countries with less area and population like Japan also fall under one of the worldwide highest emission's categories.

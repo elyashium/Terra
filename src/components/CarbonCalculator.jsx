@@ -943,7 +943,7 @@ const CarbonFootprintCalculator = () => {
                                     width="150%"
                                     isLoading={isLoading}
                                 >
-                                    Get Your Ecosavvy Score
+                                    Get Your Terra Score
                                 </Button>
                             </Flex>
                         )}

@@ -985,7 +985,6 @@ const CarbonFootprintCalculator = () => {
 export default CarbonFootprintCalculator;
 
 
-// import React, { useState } from 'react';
 
 // const CarbonFootprintCalculator = () => {
 //     const [isLoading, setIsLoading] = useState(false);

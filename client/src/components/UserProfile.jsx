@@ -33,6 +33,8 @@ import {
 } from '@chakra-ui/react';
 import BarGraph from './Graph';
 
+const API_URL = 'http://localhost:5000/api';
+
 const UserProfile = () => {
   const navigate = useNavigate();
   const toast = useToast();
@@ -99,20 +101,65 @@ const UserProfile = () => {
   useEffect(() => {
     // Check if user is logged in
     const loggedInUser = localStorage.getItem('terraUser');
+    const token = localStorage.getItem('terraToken');
     
-    if (loggedInUser) {
+    if (loggedInUser && token) {
       const userData = JSON.parse(loggedInUser);
       setUser(userData);
       
-      // Get carbon history from localStorage
-      const storedHistory = localStorage.getItem(`carbonHistory_${userData.email}`);
-      if (storedHistory) {
-        const parsedHistory = JSON.parse(storedHistory);
-        setCarbonHistory(parsedHistory);
-      } else {
-        // If no history exists, use sample data for demonstration
-        setCarbonHistory(sampleData);
-      }
+      // Fetch user profile data from API
+      const fetchUserData = async () => {
+        try {
+          const response = await fetch(`${API_URL}/auth/me`, {
+            headers: {
+              'Authorization': `Bearer ${token}`
+            }
+          });
+          
+          if (!response.ok) {
+            throw new Error('Failed to fetch user data');
+          }
+          
+          const data = await response.json();
+          setUser(prevUser => ({
+            ...prevUser,
+            ...data.data
+          }));
+        } catch (error) {
+          console.error('Error fetching user data:', error);
+        }
+      };
+      
+      // Fetch carbon footprint history from API
+      const fetchCarbonHistory = async () => {
+        try {
+          const response = await fetch(`${API_URL}/carbon`, {
+            headers: {
+              'Authorization': `Bearer ${token}`
+            }
+          });
+          
+          if (!response.ok) {
+            throw new Error('Failed to fetch carbon history');
+          }
+          
+          const data = await response.json();
+          
+          if (data.data && data.data.length > 0) {
+            setCarbonHistory(data.data);
+          } else {
+            // If no history exists, use sample data for demonstration
+            setCarbonHistory(sampleData);
+          }
+        } catch (error) {
+          console.error('Error fetching carbon history:', error);
+          // Use sample data if API fails
+          setCarbonHistory(sampleData);
+        }
+      };
+      
+      fetchUserData();
+      fetchCarbonHistory();
     } else {
       // Redirect to login if not logged in
       navigate('/auth');
@@ -126,18 +173,34 @@ const UserProfile = () => {
     }
     
     setIsLoading(false);
-  }, [navigate, toast]);
+  }, [navigate, toast, sampleData]);
   
-  const handleLogout = () => {
-    localStorage.removeItem('terraUser');
-    navigate('/');
-    toast({
-      title: 'Logged out',
-      description: 'You have been logged out successfully',
-      status: 'info',
-      duration: 3000,
-      isClosable: true,
-    });
+  const handleLogout = async () => {
+    const token = localStorage.getItem('terraToken');
+    
+    try {
+      // Call logout API
+      await fetch(`${API_URL}/auth/logout`, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+    } catch (error) {
+      console.error('Error during logout:', error);
+    } finally {
+      // Clear local storage regardless of API response
+      localStorage.removeItem('terraUser');
+      localStorage.removeItem('terraToken');
+      
+      navigate('/');
+      toast({
+        title: 'Logged out',
+        description: 'You have been logged out successfully',
+        status: 'info',
+        duration: 3000,
+        isClosable: true,
+      });
+    }
   };
   
   const handleCalculateNew = () => {

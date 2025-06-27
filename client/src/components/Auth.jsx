@@ -21,6 +21,8 @@ import {
   Tabs,
 } from '@chakra-ui/react';
 
+const API_URL = 'http://localhost:5000/api';
+
 const Auth = () => {
   const navigate = useNavigate();
   const toast = useToast();
@@ -49,7 +51,7 @@ const Auth = () => {
     setSignupForm({ ...signupForm, [name]: value });
   };
 
-  const handleLoginSubmit = (e) => {
+  const handleLoginSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     
@@ -66,12 +68,30 @@ const Auth = () => {
       return;
     }
     
-    // Simulate login API call
-    setTimeout(() => {
-      // Store user in localStorage (in a real app, you'd store a token)
+    try {
+      const response = await fetch(`${API_URL}/auth/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: loginForm.email,
+          password: loginForm.password
+        }),
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.message || 'Login failed');
+      }
+      
+      // Store token and user data in localStorage
+      localStorage.setItem('terraToken', data.token);
       localStorage.setItem('terraUser', JSON.stringify({
-        email: loginForm.email,
-        name: loginForm.email.split('@')[0],
+        id: data.user.id,
+        email: data.user.email,
+        name: data.user.name,
         isLoggedIn: true
       }));
       
@@ -83,12 +103,21 @@ const Auth = () => {
         isClosable: true,
       });
       
-      setIsLoading(false);
       navigate('/profile');
-    }, 1500);
+    } catch (error) {
+      toast({
+        title: 'Login Failed',
+        description: error.message,
+        status: 'error',
+        duration: 3000,
+        isClosable: true,
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const handleSignupSubmit = (e) => {
+  const handleSignupSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     
@@ -117,12 +146,31 @@ const Auth = () => {
       return;
     }
     
-    // Simulate signup API call
-    setTimeout(() => {
-      // Store user in localStorage (in a real app, you'd store a token)
+    try {
+      const response = await fetch(`${API_URL}/auth/register`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: signupForm.name,
+          email: signupForm.email,
+          password: signupForm.password
+        }),
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.message || 'Registration failed');
+      }
+      
+      // Store token and user data in localStorage
+      localStorage.setItem('terraToken', data.token);
       localStorage.setItem('terraUser', JSON.stringify({
-        email: signupForm.email,
-        name: signupForm.name,
+        id: data.user.id,
+        email: data.user.email,
+        name: data.user.name,
         isLoggedIn: true
       }));
       
@@ -134,9 +182,18 @@ const Auth = () => {
         isClosable: true,
       });
       
-      setIsLoading(false);
       navigate('/profile');
-    }, 1500);
+    } catch (error) {
+      toast({
+        title: 'Registration Failed',
+        description: error.message,
+        status: 'error',
+        duration: 3000,
+        isClosable: true,
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

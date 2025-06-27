@@ -1,0 +1,24 @@
+{
+  "filePath": "./App.jsx",
+  "fileType": ".jsx",
+  "lineCount": 27,
+  "nonEmptyLineCount": 23,
+  "wordCount": 81,
+  "charCount": 839,
+  "keywordFrequency": {
+    "if": 0,
+    "else": 0,
+    "for": 0,
+    "while": 0,
+    "function": 1,
+    "return": 1,
+    "const": 0,
+    "let": 0,
+    "var": 0
+  },
+  "functions": [
+    "App"
+  ],
+  "commentCount": 6,
+  "complexity": 0
+}

@@ -30,8 +30,11 @@ import {
   Tab,
   TabPanel,
   IconButton,
+  VStack,
+  HStack,
 } from '@chakra-ui/react';
 import BarGraph from './Graph';
+import '../App.css';
 
 const API_URL = 'http://localhost:5000/api';
 
@@ -41,52 +44,6 @@ const UserProfile = () => {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [carbonHistory, setCarbonHistory] = useState([]);
-  
-  // Sample carbon footprint data
-  const sampleData = [
-    {
-      id: 1,
-      date: '2023-01-15',
-      score: 1450,
-      breakdown: {
-        bills: 450,
-        food: 320,
-        healthEducation: 180,
-        transport: 380,
-        miscellaneous: 120,
-      },
-      isLessThanAverage: false,
-      percentDiff: 8.8,
-    },
-    {
-      id: 2,
-      date: '2023-03-20',
-      score: 1280,
-      breakdown: {
-        bills: 400,
-        food: 280,
-        healthEducation: 150,
-        transport: 350,
-        miscellaneous: 100,
-      },
-      isLessThanAverage: true,
-      percentDiff: 3.9,
-    },
-    {
-      id: 3,
-      date: '2023-06-10',
-      score: 1150,
-      breakdown: {
-        bills: 380,
-        food: 250,
-        healthEducation: 120,
-        transport: 320,
-        miscellaneous: 80,
-      },
-      isLessThanAverage: true,
-      percentDiff: 13.7,
-    },
-  ];
   
   // Calculate average score
   const averageScore = carbonHistory.length > 0
@@ -148,13 +105,12 @@ const UserProfile = () => {
           if (data.data && data.data.length > 0) {
             setCarbonHistory(data.data);
           } else {
-            // If no history exists, use sample data for demonstration
-            setCarbonHistory(sampleData);
+            // If no history exists, initialize with empty array
+            setCarbonHistory([]);
           }
         } catch (error) {
           console.error('Error fetching carbon history:', error);
-          // Use sample data if API fails
-          setCarbonHistory(sampleData);
+          setCarbonHistory([]);
         }
       };
       
@@ -173,7 +129,7 @@ const UserProfile = () => {
     }
     
     setIsLoading(false);
-  }, [navigate, toast, sampleData]);
+  }, [navigate, toast]);
   
   const handleLogout = async () => {
     const token = localStorage.getItem('terraToken');
@@ -216,73 +172,164 @@ const UserProfile = () => {
   }
 
   return (
-    <Box bg="black" color="white" minH="100vh" py={5}>
-      <Container maxW="container.xl">
-        <Flex mb={5} justifyContent="space-between" alignItems="center">
-          <Heading as="h1" size="xl">
+    <Box className="secondPage" color="white" minH="100vh">
+      <Container maxW="container.xl" py={10}>
+        <Flex mb={8} justifyContent="space-between" alignItems="center">
+          <Heading as="h1" className="title" fontSize="5xl">
             terra.
           </Heading>
-          <Button colorScheme="red" variant="outline" onClick={handleLogout}>
+          <Button 
+            onClick={handleLogout}
+            bg="transparent" 
+            color="white" 
+            border="1px solid white" 
+            borderRadius="50px"
+            _hover={{ 
+              bg: "rgba(255,255,255,0.1)",
+              transform: "scale(1.05)"
+            }}
+            transition="all 0.3s ease"
+          >
             Logout
           </Button>
         </Flex>
         
-        <Grid templateColumns={{ base: "1fr", md: "1fr 2fr" }} gap={6}>
+        <Grid templateColumns={{ base: "1fr", lg: "1fr 2fr" }} gap={8}>
           {/* User Profile Section */}
           <GridItem>
-            <Card bg="gray.900" borderRadius="md">
-              <CardHeader>
-                <Flex spacing="4">
-                  <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">
-                    <Avatar size="xl" name={user?.name} bg="green.500" />
+            <VStack spacing={8} align="stretch">
+              <Card 
+                bg="rgba(20, 20, 20, 0.8)" 
+                borderRadius="xl" 
+                boxShadow="0 4px 30px rgba(0, 0, 0, 0.4)"
+                border="1px solid rgba(255, 255, 255, 0.1)"
+                overflow="hidden"
+                transition="transform 0.3s ease"
+                _hover={{ transform: "translateY(-5px)" }}
+              >
+                <CardHeader pb={0}>
+                  <Flex gap={6} alignItems="center" flexWrap="wrap">
+                    <Avatar 
+                      size="xl" 
+                      name={user?.name} 
+                      bg="green.500"
+                      boxShadow="0 0 15px rgba(74, 222, 128, 0.5)"
+                    />
                     <Box>
-                      <Heading size="md">{user?.name}</Heading>
-                      <Text>{user?.email}</Text>
+                      <Heading size="lg" fontFamily="Merriweather" mb={1}>{user?.name}</Heading>
+                      <Text color="gray.300" fontFamily="Inter">{user?.email}</Text>
                     </Box>
                   </Flex>
-                </Flex>
-              </CardHeader>
-              <CardBody>
-                <StatGroup mb={4}>
-                  <Stat>
-                    <StatLabel>Average Carbon Score</StatLabel>
-                    <StatNumber>{averageScore}</StatNumber>
-                    <StatHelpText>
-                      {trend !== 0 && (
-                        <>
-                          <StatArrow type={trend < 0 ? 'decrease' : 'increase'} />
-                          {Math.abs(trend).toFixed(1)}%
-                        </>
-                      )}
-                    </StatHelpText>
-                  </Stat>
-                  <Stat>
-                    <StatLabel>Calculations</StatLabel>
-                    <StatNumber>{carbonHistory.length}</StatNumber>
-                    <StatHelpText>Total entries</StatHelpText>
-                  </Stat>
-                </StatGroup>
-                <Button colorScheme="green" width="full" onClick={handleCalculateNew}>
-                  Calculate New Footprint
-                </Button>
-              </CardBody>
-            </Card>
+                </CardHeader>
+                <CardBody>
+                  <StatGroup mb={6} p={4} bg="rgba(0,0,0,0.3)" borderRadius="lg">
+                    <Stat>
+                      <StatLabel color="gray.300" fontSize="sm" fontFamily="Inter">Average Carbon Score</StatLabel>
+                      <StatNumber fontSize="3xl" fontFamily="Merriweather">{averageScore || '—'}</StatNumber>
+                      <StatHelpText color={trend < 0 ? "green.400" : "red.400"}>
+                        {trend !== 0 && (
+                          <>
+                            <StatArrow type={trend < 0 ? 'decrease' : 'increase'} />
+                            {Math.abs(trend).toFixed(1)}%
+                          </>
+                        )}
+                      </StatHelpText>
+                    </Stat>
+                    <Stat>
+                      <StatLabel color="gray.300" fontSize="sm" fontFamily="Inter">Calculations</StatLabel>
+                      <StatNumber fontSize="3xl" fontFamily="Merriweather">{carbonHistory.length}</StatNumber>
+                      <StatHelpText color="gray.400">Total entries</StatHelpText>
+                    </Stat>
+                  </StatGroup>
+                  <Button 
+                    className="tryit"
+                    onClick={handleCalculateNew}
+                    width="full"
+                    height="50px"
+                    bg="white" 
+                    color="black"
+                    borderRadius="50px"
+                    fontFamily="Inter"
+                    fontWeight="700"
+                    _hover={{ transform: "scale(1.05)" }}
+                    transition="transform 0.3s ease"
+                  >
+                    Calculate New Footprint
+                  </Button>
+                </CardBody>
+              </Card>
+              
+              {/* Environmental Impact Card */}
+              <Card 
+                bg="rgba(20, 20, 20, 0.8)" 
+                borderRadius="xl" 
+                boxShadow="0 4px 30px rgba(0, 0, 0, 0.4)"
+                border="1px solid rgba(255, 255, 255, 0.1)"
+              >
+                <CardHeader>
+                  <Heading size="md" fontFamily="Merriweather">Your Environmental Impact</Heading>
+                </CardHeader>
+                <CardBody>
+                  <Text fontFamily="Inter" fontSize="md" mb={4}>
+                    By tracking your carbon footprint, you're taking the first step toward a more sustainable lifestyle.
+                  </Text>
+                  {carbonHistory.length > 0 ? (
+                    <HStack spacing={4} wrap="wrap">
+                      <Badge colorScheme="green" p={2} borderRadius="md">Active Tracker</Badge>
+                      {trend < 0 && <Badge colorScheme="green" p={2} borderRadius="md">Reducing Impact</Badge>}
+                    </HStack>
+                  ) : (
+                    <Text color="gray.400" fontStyle="italic">Start calculating to see your impact</Text>
+                  )}
+                </CardBody>
+              </Card>
+            </VStack>
           </GridItem>
           
           {/* Carbon History Section */}
           <GridItem>
-            <Card bg="gray.900" borderRadius="md">
+            <Card 
+              bg="rgba(20, 20, 20, 0.8)" 
+              borderRadius="xl" 
+              boxShadow="0 4px 30px rgba(0, 0, 0, 0.4)"
+              border="1px solid rgba(255, 255, 255, 0.1)"
+              h="100%"
+            >
               <CardHeader>
-                <Heading size="md">Carbon Footprint History</Heading>
+                <Heading size="lg" fontFamily="Merriweather">Carbon Footprint History</Heading>
               </CardHeader>
               <CardBody>
                 {carbonHistory.length === 0 ? (
-                  <Text>No carbon footprint calculations yet. Start by calculating your footprint!</Text>
+                  <VStack spacing={6} py={10} align="center">
+                    <Text fontSize="xl" fontFamily="Inter">No carbon footprint calculations yet.</Text>
+                    <Button
+                      className="tryit"
+                      onClick={handleCalculateNew}
+                      height="50px"
+                      bg="white" 
+                      color="black"
+                      borderRadius="50px"
+                      fontFamily="Inter"
+                      fontWeight="700"
+                      _hover={{ transform: "scale(1.05)" }}
+                      transition="transform 0.3s ease"
+                    >
+                      Calculate Your Footprint
+                    </Button>
+                  </VStack>
                 ) : (
                   <Tabs variant="soft-rounded" colorScheme="green">
-                    <TabList mb={4} overflowX="auto" css={{ scrollbarWidth: 'none' }}>
+                    <TabList mb={6} overflowX="auto" css={{ scrollbarWidth: 'none' }}>
                       {carbonHistory.map((entry) => (
-                        <Tab key={entry.id} minW="120px">
+                        <Tab 
+                          key={entry.id} 
+                          minW="120px"
+                          _selected={{ 
+                            bg: "green.500", 
+                            color: "white",
+                            boxShadow: "0 0 15px rgba(74, 222, 128, 0.5)" 
+                          }}
+                        >
                           {new Date(entry.date).toLocaleDateString()}
                         </Tab>
                       ))}
@@ -290,20 +337,33 @@ const UserProfile = () => {
                     <TabPanels>
                       {carbonHistory.map((entry) => (
                         <TabPanel key={entry.id}>
-                          <Stack spacing={4}>
+                          <Stack spacing={6}>
                             <Flex justifyContent="space-between" alignItems="center">
-                              <Heading size="md">Score: {entry.score}</Heading>
-                              <Badge colorScheme={entry.isLessThanAverage ? "green" : "red"} p={2} borderRadius="md">
+                              <Heading size="md" fontFamily="Merriweather">Score: {entry.score}</Heading>
+                              <Badge 
+                                colorScheme={entry.isLessThanAverage ? "green" : "red"} 
+                                p={2} 
+                                borderRadius="md"
+                                boxShadow={entry.isLessThanAverage ? 
+                                  "0 0 10px rgba(74, 222, 128, 0.5)" : 
+                                  "0 0 10px rgba(245, 101, 101, 0.5)"}
+                              >
                                 {entry.isLessThanAverage 
                                   ? `${entry.percentDiff}% below average` 
                                   : `${entry.percentDiff}% above average`}
                               </Badge>
                             </Flex>
-                            <Divider />
-                            <Box h="300px">
+                            <Divider borderColor="rgba(255,255,255,0.2)" />
+                            <Box 
+                              h="300px" 
+                              bg="rgba(0,0,0,0.3)" 
+                              p={4} 
+                              borderRadius="lg"
+                              boxShadow="inset 0 0 10px rgba(0,0,0,0.5)"
+                            >
                               <BarGraph data={entry.breakdown} />
                             </Box>
-                            <Text>
+                            <Text fontFamily="Inter" fontSize="md">
                               {entry.isLessThanAverage
                                 ? "Great job! Your carbon footprint is below average. Keep up the good work!"
                                 : "Your carbon footprint is above average. Consider making some changes to reduce your impact."}
@@ -316,7 +376,7 @@ const UserProfile = () => {
                 )}
               </CardBody>
               <CardFooter>
-                <Text fontSize="sm" color="gray.400">
+                <Text fontSize="sm" color="gray.400" fontFamily="Inter">
                   Track your progress over time to see how your habits affect your carbon footprint.
                 </Text>
               </CardFooter>
@@ -325,20 +385,51 @@ const UserProfile = () => {
         </Grid>
         
         {/* Tips Section */}
-        <Box mt={8} bg="gray.900" p={6} borderRadius="md">
-          <Heading size="md" mb={4}>Tips to Reduce Your Carbon Footprint</Heading>
-          <Grid templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} gap={6}>
-            <Box p={4} bg="gray.800" borderRadius="md">
-              <Heading size="sm" mb={2}>Transportation</Heading>
-              <Text>Use public transportation, carpool, bike, or walk whenever possible. Consider an electric vehicle for your next car purchase.</Text>
+        <Box 
+          mt={10} 
+          bg="rgba(20, 20, 20, 0.8)" 
+          p={8} 
+          borderRadius="xl"
+          boxShadow="0 4px 30px rgba(0, 0, 0, 0.4)"
+          border="1px solid rgba(255, 255, 255, 0.1)"
+        >
+          <Heading size="lg" mb={6} fontFamily="Merriweather">Tips to Reduce Your Carbon Footprint</Heading>
+          <Grid templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} gap={8}>
+            <Box 
+              p={6} 
+              bg="rgba(0,0,0,0.3)" 
+              borderRadius="lg"
+              boxShadow="0 4px 15px rgba(0, 0, 0, 0.3)"
+              border="1px solid rgba(255, 255, 255, 0.05)"
+              transition="transform 0.3s ease"
+              _hover={{ transform: "translateY(-5px)" }}
+            >
+              <Heading size="md" mb={4} fontFamily="Merriweather" color="green.400">Transportation</Heading>
+              <Text fontFamily="Inter">Use public transportation, carpool, bike, or walk whenever possible. Consider an electric vehicle for your next car purchase.</Text>
             </Box>
-            <Box p={4} bg="gray.800" borderRadius="md">
-              <Heading size="sm" mb={2}>Energy Usage</Heading>
-              <Text>Switch to energy-efficient appliances, use LED bulbs, and consider renewable energy sources like solar panels for your home.</Text>
+            <Box 
+              p={6} 
+              bg="rgba(0,0,0,0.3)" 
+              borderRadius="lg"
+              boxShadow="0 4px 15px rgba(0, 0, 0, 0.3)"
+              border="1px solid rgba(255, 255, 255, 0.05)"
+              transition="transform 0.3s ease"
+              _hover={{ transform: "translateY(-5px)" }}
+            >
+              <Heading size="md" mb={4} fontFamily="Merriweather" color="green.400">Energy Usage</Heading>
+              <Text fontFamily="Inter">Switch to energy-efficient appliances, use LED bulbs, and consider renewable energy sources like solar panels for your home.</Text>
             </Box>
-            <Box p={4} bg="gray.800" borderRadius="md">
-              <Heading size="sm" mb={2}>Diet</Heading>
-              <Text>Reduce meat consumption, especially beef. Choose locally sourced foods and reduce food waste by planning meals carefully.</Text>
+            <Box 
+              p={6} 
+              bg="rgba(0,0,0,0.3)" 
+              borderRadius="lg"
+              boxShadow="0 4px 15px rgba(0, 0, 0, 0.3)"
+              border="1px solid rgba(255, 255, 255, 0.05)"
+              transition="transform 0.3s ease"
+              _hover={{ transform: "translateY(-5px)" }}
+            >
+              <Heading size="md" mb={4} fontFamily="Merriweather" color="green.400">Diet</Heading>
+              <Text fontFamily="Inter">Reduce meat consumption, especially beef. Choose locally sourced foods and reduce food waste by planning meals carefully.</Text>
             </Box>
           </Grid>
         </Box>

@@ -347,19 +347,19 @@ const CarbonFootprintCalculator = () => {
             <br />
             <Box>
                 <nav style={navContainerStyle}>
-                    <NavLink to="#" style={getLinkStyle}>
+                    <NavLink to="#" style={({ isActive }) => getLinkStyle({ isActive })}>
                         <span role="img" aria-label="Monthly Bills" style={emojiStyle}>
                             💸
                         </span>
                         Monthly Bills
                     </NavLink>
-                    <NavLink to="#" style={getLinkStyle}>
+                    <NavLink to="#" style={({ isActive }) => getLinkStyle({ isActive })}>
                         <span role="img" aria-label="Food And Beverages" style={emojiStyle}>
                             🍔
                         </span>
                         Food And Beverages
                     </NavLink>
-                    <NavLink to="#" style={getLinkStyle}>
+                    <NavLink to="#" style={({ isActive }) => getLinkStyle({ isActive })}>
                         <span
                             role="img"
                             aria-label="Health And Education"
@@ -369,19 +369,19 @@ const CarbonFootprintCalculator = () => {
                         </span>
                         Health And Education
                     </NavLink>
-                    <NavLink to="#" style={getLinkStyle}>
+                    <NavLink to="#" style={({ isActive }) => getLinkStyle({ isActive })}>
                         <span role="img" aria-label="Transport" style={emojiStyle}>
                             🚗
                         </span>
                         Transport
                     </NavLink>
-                    <NavLink to="#" style={getLinkStyle}>
+                    <NavLink to="#" style={({ isActive }) => getLinkStyle({ isActive })}>
                         <span role="img" aria-label="Miscellaneous" style={emojiStyle}>
                             🛍️
                         </span>
                         Miscellaneous
                     </NavLink>
-                    <NavLink to="#" style={getLinkStyle}>
+                    <NavLink to="#" style={({ isActive }) => getLinkStyle({ isActive })}>
                         <span role="img" aria-label="Result" style={emojiStyle}>
                             📊
                         </span>

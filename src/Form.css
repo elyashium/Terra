@@ -30,3 +30,15 @@
     font-size: 1.5em;
     margin-right: 5px;
   }
+
+  /* Add styles for our custom form components */
+  .form-control {
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+
+  .form-label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }

@@ -1,11 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import '../App.css'
 import CarbonEmissionsReport from './CarbonEmissionReport';
 export default function Learn() {
-    const [activeSection, setActiveSection] = useState(null);
-
-
-
+  
     return (
         <div className="learn-carbon-container">
 

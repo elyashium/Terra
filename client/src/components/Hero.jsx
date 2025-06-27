@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Earth from './Earth'
 import Timeline from './Timeline'
@@ -7,9 +7,31 @@ import '../App.css'
 
 export default function Hero() {
   const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  
+  useEffect(() => {
+    const user = localStorage.getItem('terraUser');
+    setIsLoggedIn(!!user);
+    
+    // Listen for changes in login status
+    const handleStorageChange = () => {
+      const user = localStorage.getItem('terraUser');
+      setIsLoggedIn(!!user);
+    };
+    
+    window.addEventListener('storage', handleStorageChange);
+    
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
 
   const handleBtn = () => {
-    navigate("/CarbonCalculator")
+    if (isLoggedIn) {
+      navigate("/CarbonCalculator");
+    } else {
+      navigate("/auth");
+    }
   }
 
   return (
@@ -23,7 +45,7 @@ export default function Hero() {
             <p>Use our interactive calculator to learn your carbon footprint and actions to take to reduce it.</p>
 
             <div onClick={handleBtn} className="tryit">
-              <div className="btn">Try it out</div>
+              <div className="btn">{isLoggedIn ? 'Try it out' : 'Login to Try'}</div>
               <img src="/src/images/arrow.svg" alt="Arrow" />
             </div>
           </div>

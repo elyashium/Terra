@@ -80,7 +80,7 @@ main {
     background-color: white;
     color: black;
     border-radius: 50px;
-    width: 150px;
+    width: 160px;
     height: 50px;
     font-size: 18px;
     font-weight: 700;
@@ -739,4 +739,56 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 1rem;
+}
+
+/* Auth and Profile Styles */
+.auth-container {
+  min-height: 100vh;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-form {
+  background-color: rgba(30, 30, 30, 0.8);
+  padding: 2rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.profile-container {
+  min-height: 100vh;
+  background-color: #000;
+  color: #fff;
+  padding: 2rem;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.profile-card {
+  background-color: rgba(30, 30, 30, 0.8);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.profile-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.stat-card {
+  background-color: rgba(50, 50, 50, 0.8);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
 }

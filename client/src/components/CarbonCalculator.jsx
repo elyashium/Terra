@@ -36,6 +36,7 @@ const CarbonFootprintCalculator = () => {
     const [familyMembers, setFamilyMembers] = useState(1);
     const [railFam, setRailFam] = useState(1);
     const [flightFam, setFlightFam] = useState(1);
+    const [finalScore, setFinalScore] = useState(0);
 
     const [formData, setFormData] = useState({
         family: 0,
@@ -282,6 +283,7 @@ const CarbonFootprintCalculator = () => {
         if (score >= 1333) {
             setisLessThanAverage(false);
         }
+        setFinalScore(score);
         console.log(score, "score");
         return score;
     };
@@ -311,10 +313,48 @@ const CarbonFootprintCalculator = () => {
         setIsLoading(true);
         e.preventDefault();
         try {
-            await calculateScore();
+            const score = await calculateScore();
+            
+            // Save result to localStorage if user is logged in
+            const loggedInUser = localStorage.getItem('terraUser');
+            if (loggedInUser) {
+                const user = JSON.parse(loggedInUser);
+                // Get existing history or create new array
+                const existingHistory = localStorage.getItem(`carbonHistory_${user.email}`);
+                const history = existingHistory ? JSON.parse(existingHistory) : [];
+                
+                // Add new result
+                const newResult = {
+                    id: Date.now(),
+                    date: new Date().toISOString().split('T')[0],
+                    score: score,
+                    breakdown: userData,
+                    isLessThanAverage: isLessThanAverage,
+                    percentDiff: percent
+                };
+                
+                history.push(newResult);
+                localStorage.setItem(`carbonHistory_${user.email}`, JSON.stringify(history));
+                
+                toast({
+                    title: 'Result Saved',
+                    description: 'Your carbon footprint result has been saved to your profile.',
+                    status: 'success',
+                    duration: 3000,
+                    isClosable: true,
+                });
+            }
+            
             setCurrentStep(currentStep + 1);
         } catch (error) {
             console.error("Error:", error);
+            toast({
+                title: 'Error',
+                description: 'There was an error calculating your carbon footprint.',
+                status: 'error',
+                duration: 3000,
+                isClosable: true,
+            });
         } finally {
             setIsLoading(false);
         }
@@ -347,16 +387,22 @@ const CarbonFootprintCalculator = () => {
     return (
         <>
             <Box position="relative" pb="60px">
-                <Button 
-                    position="absolute" 
-                    top="10px" 
-                    left="10px" 
-                    colorScheme="green" 
-                    onClick={() => navigate('/')}
-                    zIndex={1000}
-                >
-                    Back to Home
-                </Button>
+                <Flex position="absolute" top="10px" left="10px" gap={2} zIndex={1000}>
+                    <Button 
+                        colorScheme="green" 
+                        onClick={() => navigate('/')}
+                    >
+                        Back to Home
+                    </Button>
+                    {localStorage.getItem('terraUser') && (
+                        <Button 
+                            colorScheme="blue" 
+                            onClick={() => navigate('/profile')}
+                        >
+                            My Profile
+                        </Button>
+                    )}
+                </Flex>
                 
                 <nav style={navContainerStyle}>
                     <NavLink to="#" style={({ isActive }) => getLinkStyle({ isActive })}>

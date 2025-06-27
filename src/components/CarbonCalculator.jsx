@@ -21,13 +21,14 @@ import {
     InputGroup,
     useToast
 } from "@chakra-ui/react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import ThugLifeCard from "./ThugLifeCard";
 import AverageCalculator from "./AverageCalculator";
 import BarGraph from "./Graph";
 import Header from './Header';
 
 const CarbonFootprintCalculator = () => {
+    const navigate = useNavigate();
     const toast = useToast();
     const [isLoading, setIsLoading] = useState(false);
     const [isLessThanAverage, setisLessThanAverage] = useState(true);
@@ -334,6 +335,8 @@ const CarbonFootprintCalculator = () => {
         alignItems: "center",
         background: "white",
         padding: "10px",
+        flexWrap: "wrap",
+        gap: "10px"
     };
 
     const emojiStyle = {
@@ -343,9 +346,18 @@ const CarbonFootprintCalculator = () => {
 
     return (
         <>
-            <div className="head"><Header /></div>
-            <br />
-            <Box>
+            <Box position="relative" pb="60px">
+                <Button 
+                    position="absolute" 
+                    top="10px" 
+                    left="10px" 
+                    colorScheme="green" 
+                    onClick={() => navigate('/')}
+                    zIndex={1000}
+                >
+                    Back to Home
+                </Button>
+                
                 <nav style={navContainerStyle}>
                     <NavLink to="#" style={({ isActive }) => getLinkStyle({ isActive })}>
                         <span role="img" aria-label="Monthly Bills" style={emojiStyle}>

@@ -1,12 +1,9 @@
 import React from 'react'
-import { Element } from 'react-scroll'
-import Header from './Header'
-import Earth from './Earth'
 import { useNavigate } from 'react-router-dom'
-import CarbonCalculator from './CarbonCalculator'
+import Earth from './Earth'
 import Timeline from './Timeline'
-import '../App.css'
 import Learn from './Learn'
+import '../App.css'
 
 export default function Hero() {
   const navigate = useNavigate();
@@ -16,42 +13,48 @@ export default function Hero() {
   }
 
   return (
-    <>
-      <Header />
-      <main>
-        <Element name="home">
+    <main className="hero-main">
+      {/* Hero Section */}
+      <section id="home" className="hero-section">
+        <div className="firstContainer">
+          <div className="text">
+            <div className="title">terra.</div>
 
+            <p>Use our interactive calculator to learn your carbon footprint and actions to take to reduce it.</p>
 
-          <div className="firstContainer">
-            <div className="text">
-              <div className="title">terra.</div>
-
-              <p>Use our interactive calculator to learn your carbon footprint and actions to take to reduce it.</p>
-
-              <div onClick={handleBtn} className="tryit">
-                <div className="btn">Try it out</div>
-                <img src="src\images\arrow.svg" alt="" />
-              </div>
-            </div>
-
-            <div className="earth">
-              <Earth />
+            <div onClick={handleBtn} className="tryit">
+              <div className="btn">Try it out</div>
+              <img src="/src/images/arrow.svg" alt="Arrow" />
             </div>
           </div>
-        </Element>
 
-        <Element name="timeline" className="dark-mode-app">
+          <div className="earth">
+            <Earth />
+          </div>
+        </div>
+      </section>
+      
+      {/* Timeline Section */}
+      <section id="timeline" className="section-container dark-mode-app">
+        <div className="section-wrapper">
           <Timeline />
-        </Element>
-
-        <Element name="learn" className="learn-section">
+        </div>
+      </section>
+      
+      {/* Learn Section */}
+      <section id="learn" className="section-container learn-section">
+        <div className="section-wrapper">
           <Learn />
-        </Element>
-
-        <Element name="events" className="events-section" style={{ display: 'none' }}>
-          {/* Placeholder for events section */}
-        </Element>
-      </main>
-    </>
+        </div>
+      </section>
+      
+      {/* Events Section */}
+      <section id="events" className="section-container events-section">
+        <div className="coming-soon">
+          <h2>Events Coming Soon</h2>
+          <p>Stay tuned for upcoming events and activities!</p>
+        </div>
+      </section>
+    </main>
   )
 }

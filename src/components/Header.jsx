@@ -1,79 +1,73 @@
-import React from 'react'
-import { Link } from 'react-scroll'
-import '../app.css'
+import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import '../App.css';
 
 export default function Header() {
+    const [menuOpen, setMenuOpen] = useState(false);
+    const location = useLocation();
+    
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+    };
+    
+    // Don't render the header on the CarbonCalculator page
+    if (location.pathname === '/CarbonCalculator') {
+        return null;
+    }
+    
+    const scrollToSection = (id) => {
+        setMenuOpen(false);
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+    
     return (
         <header className="header">
-            <Link
-                to="home"
-                smooth={true}
-                duration={500}
-                offset={-70}
-                className="nav-link"
-            >
-
-                <div className="logo">
-                    <img src="src\images\logo.png" alt="" />
+            <div className="logo">
+                <a href="#home" onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('home');
+                }}>
+                    <img src="/src/images/logo.png" alt="Terra Logo" />
+                </a>
+            </div>
+            
+            <div className="mobile-menu-icon" onClick={toggleMenu}>
+                <div className={`menu-icon ${menuOpen ? 'open' : ''}`}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
-            </Link>
-            <div>
-
-                <Link
-                    to="home"
-                    smooth={true}
-                    duration={500}
-                    offset={-70}
-                    className="nav-link"
-                >
+            </div>
+            
+            <nav className={`nav-links ${menuOpen ? 'active' : ''}`}>
+                <a href="#home" className="nav-link" onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('home');
+                }}>
                     Home
-                </Link>
-
-            </div>
-
-            <div >
-
-                <Link
-                    to="timeline"
-                    smooth={true}
-                    duration={500}
-                    offset={-70}
-                    className="nav-link"
-                >
+                </a>
+                <a href="#timeline" className="nav-link" onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('timeline');
+                }}>
                     Timeline
-                </Link>
-
-            </div>
-
-
-            <div>
-
-                <Link
-                    to="learn"
-                    smooth={true}
-                    duration={500}
-                    offset={-70}
-                    className="nav-link"
-                >
+                </a>
+                <a href="#learn" className="nav-link" onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('learn');
+                }}>
                     Learn
-                </Link>
-            </div>
-
-            <div>
-
-
-                <Link
-                    to="events"
-                    smooth={true}
-                    duration={500}
-                    offset={-70}
-                    className="nav-link"
-                >
+                </a>
+                <a href="#events" className="nav-link" onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('events');
+                }}>
                     Events
-                </Link>
-            </div>
-
-
+                </a>
+            </nav>
         </header>
-    )
+    );
 }

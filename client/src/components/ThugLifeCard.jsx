@@ -1,7 +1,7 @@
 import React from "react";
 
-import HappyImage from "../images/happy.png"
-import SadImage from "../images/sad.png"
+import HappyImage from "/images/happy.png"
+import SadImage from "/images/Sad.png"
 
 const ThugLifeCard = ({ isHappy }) => {
   const imagePath = isHappy ? HappyImage : SadImage

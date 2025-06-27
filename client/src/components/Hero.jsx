@@ -46,7 +46,7 @@ export default function Hero() {
 
             <div onClick={handleBtn} className="tryit">
               <div className="btn">{isLoggedIn ? 'Try it out' : 'Login to Try'}</div>
-              <img src="/src/images/arrow.svg" alt="Arrow" />
+              <img src="/images/arrow.svg" alt="Arrow" />
             </div>
           </div>
 
